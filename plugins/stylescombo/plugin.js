@@ -75,13 +75,14 @@
 				},
 
 				init: function() {
-					var style, styleName, lastType, type, i, count;
+					var style, styleLabel, styleName, lastType, type, i, count;
 
 					// Loop over the Array, adding all items to the
 					// combo.
 					for ( i = 0, count = stylesList.length; i < count; i++ ) {
 						style = stylesList[ i ];
 						styleName = style._name;
+						styleLabel = style._.definition.label;
 						type = style._.type;
 
 						if ( type != lastType ) {
@@ -89,7 +90,7 @@
 							lastType = type;
 						}
 
-						this.add( styleName, style.buildPreview(), styleName );
+						this.add( styleName, style.buildPreview( styleLabel ), styleName );
 					}
 
 					this.commit();
