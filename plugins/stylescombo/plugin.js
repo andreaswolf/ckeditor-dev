@@ -89,7 +89,7 @@
 							lastType = type;
 						}
 
-						this.add( styleName, style.type == CKEDITOR.STYLE_OBJECT ? styleName : style.buildPreview(), styleName );
+						this.add( styleName, style.buildPreview(), styleName );
 					}
 
 					this.commit();

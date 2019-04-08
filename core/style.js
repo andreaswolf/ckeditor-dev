@@ -489,6 +489,7 @@ CKEDITOR.STYLE_OBJECT = 3;
 		 * Builds the preview HTML based on the styles definition.
 		 *
 		 * @param {String} [label] The label used in the style preview.
+		 * @param {String} [elementName] The element name used in the preview
 		 * @return {String} The HTML of preview.
 		 */
 		buildPreview: function( label ) {
@@ -498,6 +499,10 @@ CKEDITOR.STYLE_OBJECT = 3;
 
 			// Avoid <bdo> in the preview.
 			if ( elementName == 'bdo' )
+				elementName = 'span';
+
+			// Avoid object tags in the preview, as they won't show properly
+			if ( this.type === CKEDITOR.STYLE_OBJECT )
 				elementName = 'span';
 
 			html = [ '<', elementName ];
